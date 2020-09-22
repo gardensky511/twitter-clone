@@ -13,7 +13,7 @@ import { HashRouter, Route, Switch } from "react-router-dom";
 // HTML5의 history API를 활용하여 UI를 업데이트
 // 동적인 페이지 제작엔 이게 보편적
 
-const AppRouter = ({ isLoggedIn }) => {
+const AppRouter = ({ isLoggedIn, userObject }) => {
   return (
     <HashRouter>
       {isLoggedIn && <Navigation />}
@@ -22,7 +22,7 @@ const AppRouter = ({ isLoggedIn }) => {
         {isLoggedIn ? (
           <>
             <Route exact path="/">
-              <Home />
+              <Home userObject={userObject} />
             </Route>
             <Route exact path="/profile">
               <Profile />
